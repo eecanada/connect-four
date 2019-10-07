@@ -73,9 +73,30 @@ const game = {
 
 
 
+  locateChip: (e) => {
+    if(this.playerOne){
+      console.log(e.target.cellIndex, "col")
+      console.log(e.target.parentElement.rowIndex, "row")
+      e.target.style.backgroundColor = "red"
+      this.playerOne = false
+    } else {
+      console.log(e.target)
+      e.target.style.backgroundColor = "yellow"
+      console.log(e.target.cellIndex, "col")
+      console.log(e.target.parentElement.rowIndex, "row")
+      this.playerOne = true
+    }
+  }
+
+};
 
 
 
 
+
+
+const button = document.querySelectorAll('.button')
+for(let i = 0; i < button.length; i++) {
+button[i].addEventListener('click', game.locateChip)
 
 }
