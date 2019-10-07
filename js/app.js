@@ -95,3 +95,5 @@ button[i].addEventListener('click', game.locateChip)
 
 
 const color = 'red'
+
+const mike = 'thank you!'
