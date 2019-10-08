@@ -58,11 +58,12 @@ const game = {
   //1.3 this allows me to let player 1&2 to put chip on the board and locate where they are on the board 
   locateChip: (e) => {
     // if(game.playerOne) === true, which is it is run the for loop
+    const col = e.target.cellIndex
     if (game.playerOne) {
 
       // this logs the position on the board
-      console.log(e.target.cellIndex, "col")
       console.log(e.target.parentElement.rowIndex, "row")
+      console.log(e.target.cellIndex, "col")
 
       // Checks the column from bottom to top
       for (let i = game.board.length - 1; i >= 0; i--) {
@@ -73,18 +74,20 @@ const game = {
         if (!game.board[i][e.target.cellIndex]) {
           game.board[i][e.target.cellIndex] = 1;
           game.checkHorizontal();
+          game.checkVertical(col);
           break;
         }
       }
       // this then changes playerOne to false so i can do my if statement
       game.playerOne = false
     } else {
-      console.log(e.target.cellIndex, "col")
       console.log(e.target.parentElement.rowIndex, "row")
+      console.log(e.target.cellIndex, "col")
       for (let i = game.board.length - 1; i >= 0; i--) {
         if (!game.board[i][e.target.cellIndex]) {
           game.board[i][e.target.cellIndex] = 2;
           game.checkHorizontal();
+          game.checkVertical(col);
           break;
         }
       }
@@ -122,13 +125,13 @@ const game = {
 
   // 1.5 so this checks the horizontal size of both players
   checkHorizontal: () => {
-    console.log("yo")
+    // console.log("yo")
     let player = null;
     let count = 0;
 
     // if game.player===true, then player is 1, else player is 2 , this lets me alternate between players 
     game.playerOne ? player = 1 : player = 2
-    
+
     // this loops through the whole board and everytime is drops a chips it add +1 until it gets to 4 
     for (let i = 0; i < game.board.length; i++) {
       for (let o = 0; o < game.board[i].length; o++) {
@@ -144,6 +147,30 @@ const game = {
       }
     }
   },
+
+
+  // 1.6 i = row 1 , o = column2 
+  checkVertical: (column) => {
+    let player = null;
+    let count = 0
+    // console.log(column)
+    game.playerOne ? player = 1 : player = 2
+    for (let i = 0; i < game.board.length; i++) {
+      // passing column
+      if (game.board[i][column] === player) {
+        count++
+        // console.log(count)
+        if (count === 4) {
+          console.log(`player ${player} has won`)
+          return
+        }
+
+      } else {
+        count = 0
+      }
+    }
+
+  }
 
 
 
