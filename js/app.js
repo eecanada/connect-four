@@ -59,7 +59,7 @@ const game = {
   locateChip: (e) => {
     // if(game.playerOne) === true, which is it is run the for loop
     const col = e.target.cellIndex
-    let row = e.target.parentElement.rowIndex
+    // let row = e.target.parentElement.rowIndex
     
     
     if (game.playerOne) {
@@ -79,6 +79,7 @@ const game = {
           game.checkHorizontal();
           game.checkVertical(col);
           game.checkDiagonal(i,col);
+          game.checkDiagonalRightSide(i,col);
           break;
         }
       }
@@ -93,6 +94,7 @@ const game = {
           game.checkHorizontal();
           game.checkVertical(col);
           game.checkDiagonal(i,col);
+          game.checkDiagonalRightSide(i,col);
           break;
         }
       }
@@ -187,8 +189,6 @@ const game = {
     // i = row, o = column 
     for (let i = 1; i < game.board.length; i++) {
       // for (let o = 1; o < game.board[i].length - 3; o++) {
-        // console.log(game.board.length - 3,'here')
-        // console.log(row)
         // its going down a row and to the right side 
         if (game.board[row + i] && game.board[row + i][col + i ] === player) {
           count++
@@ -201,9 +201,33 @@ const game = {
           count = 1
         }
       }
+    },
+  // 1.8 check diagonal from the right side 
+  checkDiagonalRightSide: (row,col) => {
+    let player = null;
+    let count = 1;
+
+    game.playerOne ? player = 1 : player = 2
+
+    for(let i = 1; i < game.board.length; i++){
+      // checking if row exist, and then checking if the values are there 1/2
+      if(game.board[row + i] && game.board[row  + i][col - i] === player) {
+        count ++
+        if(count === 4){
+          console.log(`player ${player} has won`)
+          return;
+        }
+      } 
+    else {
+      count = 1 
     }
-  // }
-} 
+    }
+
+  }
+  
+};
+
+
 
 
 //-row + column
