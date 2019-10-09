@@ -1,5 +1,5 @@
 table {
-background-color: lightblue
+background-color: darkgray
 }
 
 .button{
@@ -8,5 +8,14 @@ background-color: lightblue
   background-color: white;
   border: 1px solid black;
   border-radius: 50%;
+}
+
+div {
+text-align: center
+}
+
+#board{
+  margin: 0 auto;
+  margin-top: 20px
 }
 
