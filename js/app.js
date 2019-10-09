@@ -59,7 +59,7 @@ const game = {
   locateChip: (e) => {
     // if(game.playerOne) === true, which is it is run the for loop
     const col = e.target.cellIndex
-    const row = e.target.parentElement.rowIndex
+    let row = e.target.parentElement.rowIndex
     
     
     if (game.playerOne) {
@@ -92,7 +92,7 @@ const game = {
           game.board[i][e.target.cellIndex] = 2;
           game.checkHorizontal();
           game.checkVertical(col);
-          game.checkDiagonal(row,col);
+          game.checkDiagonal(i,col);
           break;
         }
       }
@@ -181,15 +181,16 @@ const game = {
   //1.7 check the top left to bottom
   checkDiagonal: (row,col) => {
     let player = null;
-    let count = 0
+    let count = 1
 
     game.playerOne ? player = 1 : player = 2
     // i = row, o = column 
-    for (let i = 0; i < game.board.length - 3; i++) {
-      for (let o = 0; o < game.board[i].length - 3; o++) {
-        console.log(game.board.length - 3,'here')
-        console.log(row)
-        if (game.board[row + 1] && game.board[row + 1][col +1 ] === player) {
+    for (let i = 1; i < game.board.length; i++) {
+      // for (let o = 1; o < game.board[i].length - 3; o++) {
+        // console.log(game.board.length - 3,'here')
+        // console.log(row)
+        // its going down a row and to the right side 
+        if (game.board[row + i] && game.board[row + i][col + i ] === player) {
           count++
           if (count === 4) {
             console.log(`player ${player} has won`)
@@ -197,49 +198,15 @@ const game = {
           }
         }
         else {
-          count = 0
+          count = 1
         }
       }
     }
-  },
-
-
-//1.7 check the top right  to bottom
-checkDiagonal: (row,col) => {
-  let player = null;
-  let count = 0
-
-  game.playerOne ? player = 1 : player = 2
-  // i = row, o = column 
-  for (let i = 0; i < game.board.length - 3; i++) {
-    for (let o = 0; o < game.board[i].length - 3; o++) {
-      console.log(game.board.length - 3,'here')
-      console.log(row)
-      if (game.board[row + 1] && game.board[row + 1][col +1 ] === player) {
-        count++
-        if (count === 4) {
-          console.log(`player ${player} has won`)
-          return
-        }
-      }
-      else {
-        count = 0
-      }
-    }
-  }
-},
-
-
-
-
-
-
-
-
+  // }
 } 
 
 
-
+//-row + column
 
 
 //1.2  this is the event listener that loops through each single cell and lets me click on the on to locate the chip and change the color 
@@ -249,6 +216,7 @@ for(let i = 0; i<button.length; i++) {
     button[i].addEventListener('click', game.locateChip)
 
 }
+
 
 
 
