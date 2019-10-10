@@ -1,6 +1,6 @@
 # Connect-Four Wire Frame
 
-![Image of game play screen](https://imgur.com/a/VknMTjM)
+<img width="1440" alt="Screen Shot 2019-10-10 at 12 57 47 PM" src="https://user-images.githubusercontent.com/53157290/66604093-4e084d00-eb62-11e9-923a-bd55096b857f.png">
 
 
 
