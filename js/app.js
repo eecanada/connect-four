@@ -144,7 +144,6 @@ const game = {
 
     // 1.5 so this checks the horizontal size of both players
     checkHorizontal: () => {
-        // console.log("yo")
         let player = null;
         let count = 0;
 
@@ -201,22 +200,7 @@ const game = {
 
         game.playerOne ? player = 1 : player = 2
             // i = row, o = column 
-            // for (let i = 1; i < game.board.length; i++) {
-            //   // for (let o = 1; o < game.board[i].length - 3; o++) {
-            //     // its going down a row and to the right side 
-            //     if (game.board[row + i] && game.board[row + i][col + i ] === player) {
-            //       count++
-
-        //       if (count === 4) {
-        //         console.log(`player ${player} has won`)
-        //         return
-        //       }
-        //     }
-        //     else {
-        //       count = 1
-        //     }
-        //   }
-        // Winner only possible at row 3 and down
+            // Winner only possible at row 3 and down
         for (let i = 0; i < 3; i++) {
             for (let o = 0; o < game.board[i].length; o++) {
                 // its going down a row and to the right side 
@@ -259,8 +243,8 @@ const game = {
 
 
 //1.2  this is the event listener that loops through each single cell and lets me click on the on to locate the chip and change the color 
-const rows = document.querySelectorAll('tr');
-const button = document.querySelectorAll('.button')
+const rows = document.querySelectorAll('tr'); // row
+const button = document.querySelectorAll('.button') //columns
 for (let i = 0; i < button.length; i++) {
     button[i].addEventListener('click', game.locateChip)
 
