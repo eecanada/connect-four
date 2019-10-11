@@ -7,7 +7,7 @@
 
 # Description 
 
-* Connect Four is a game where two players take turns dropping chips on the 7 x6  board with the goal matching four chips of the same color, either horizontally, vertically, or diagonally to declare 
+* Connect Four is a game where two players take turns dropping chips on the 7 x 6  board with the goal of matching four chips of the same color, either horizontally, vertically, or diagonally to declare 
 a winner. 
 
 * This game is a mordern interpretation of the classic hasbro games, built using dry code with a fun design and few audio notes.
