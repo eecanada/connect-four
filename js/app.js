@@ -8,8 +8,6 @@ $('#begin').on('click', () => {
 
 });
 
-
-
 $('#begin').on('click', () => {
     const setName2 = prompt('Please name Player 2:');
     game.player2 = setName2
@@ -18,12 +16,7 @@ $('#begin').on('click', () => {
     $two.text(`Player 2: ${name2.name}`)
 });
 
-
-
 let chipAudio = new Audio('audio/chipNoise.mp3');
-
-
-
 let popUpBox = document.getElementById("pop-up-box");
 let popUpText = document.getElementById("pop-up-text");
 document.getElementById("rematch").addEventListener("click", function() {
@@ -31,17 +24,11 @@ document.getElementById("rematch").addEventListener("click", function() {
     location.reload();
 });
 
-
-
-
 class Player {
     constructor(name) { 
         this.name = name
     }
 }
-
-
-
 
 const game = {
 
@@ -58,14 +45,9 @@ const game = {
     player1: '',
     player2: '',
     playerOne: true,
-
-
-
     
     locateChip: (e) => {
         const col = e.target.cellIndex
-
-
         if (game.playerOne) {
 
             console.log(e.target.parentElement.rowIndex, "row")
@@ -83,7 +65,6 @@ const game = {
                     break;
                 }
             }
-           
             game.playerOne = false
         } else {
             console.log(e.target.parentElement.rowIndex, "row")
@@ -103,12 +84,6 @@ const game = {
         game.loadBoard();
     },
 
-
-
-
-
-
-    
     loadBoard: () => {
         for (let i = 0; i < game.board.length; i++) {
             for (let o = 0; o < game.board[i].length; o++) {
@@ -155,7 +130,6 @@ const game = {
                     popUpBox.style.display = 'block'
                     return
                 }
-
             } else {
                 count = 0
             }
@@ -179,10 +153,7 @@ const game = {
 
     checkDiagonalRightSide: (row, col) => {
         let player = null;
-
-
         game.playerOne ? player = 1 : player = 2
-
         for (let i = 0; i < 3; i++) {
             for (let o = 0; o < game.board[i].length; o++) {
                 if (game.board[i][o] === player && game.board[i + 1][o - 1] === player && game.board[i + 2][o - 2] === player && game.board[i + 3][o - 3] === player) {
@@ -191,11 +162,8 @@ const game = {
                     return;
                 }
             }
-
         }
     }
-
-
 };
 
 const rows = document.querySelectorAll('tr'); 
