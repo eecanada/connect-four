@@ -23,10 +23,10 @@ a winner.
 
 [Click to play!](https://eecanada.github.io/connect-four/)
 
-* To start the game the user clicks the begin game button to provide each player a name.
-* The players then take take turns and  click the column where they would like to drop their chips.
-* The first player to connect four chips, horizontally, vertically, or diagonally is declared the winner.
-* If they chose to play again, the player can then select the 'Let's Go Another Round button to clear the board and begin a new match.
+* To start the game, the user clicks the begin game button to provide each player a name.
+* The players then take turns and  click the column where they would like to drop their chips.
+* The first player to connect four chips horizontally, vertically, or diagonally is declared the winner.
+* If they chose to play again, the player can then select the "Let's Go Another Round" button to clear the board and begin a new match.
 
 
 # Next Steps
